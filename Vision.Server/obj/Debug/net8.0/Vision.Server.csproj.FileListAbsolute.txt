@@ -33,3 +33,4 @@ C:\Users\D4\source\repos\Vision\Vision.Server\obj\Debug\net8.0\refint\Vision.Ser
 C:\Users\D4\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.pdb
 C:\Users\D4\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.genruntimeconfig.cache
 C:\Users\D4\source\repos\Vision\Vision.Server\obj\Debug\net8.0\ref\Vision.Server.dll
+C:\Users\D4\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.sourcelink.json
