@@ -4,13 +4,18 @@ using Microsoft.Extensions.DependencyInjection;
 using Vision.Server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-ConfigurationManager configuration = builder.Configuration;
-var conn = configuration.GetConnectionString("ConnectionString");
+
+// Register your DbContext as a scoped service
+builder.Services.AddDbContext<VisionDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//ConfigurationManager configuration = builder.Configuration;
+//var conn = configuration.GetConnectionString("ConnectionString");
 
 // Add services to the container.
 
 
-builder.Services.AddSqlServer<VisionDbContext>(conn);
+//builder.Services.AddSqlServer<VisionDbContext>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -28,8 +33,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 
-    var TestMigration = app.Services.GetRequiredService<VisionDbContext>();
-    await TestMigration.Database.EnsureCreatedAsync();
+    // Create scope and apply migration
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<VisionDbContext>();
+        await dbContext.Database.MigrateAsync(); 
+    }
+    //var TestMigration = app.Services.GetRequiredService<VisionDbContext>();
+    //await TestMigration.Database.EnsureCreatedAsync();
 }
 
 
