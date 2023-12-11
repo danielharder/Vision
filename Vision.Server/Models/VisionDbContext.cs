@@ -13,33 +13,10 @@ namespace Vision.Server.Models
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Log> Logs { get; set; }
 
-        //public string DbPath { get; }
-
-        //public VisionDbContext(string aConn)
-        //{
-
-        //}
-        //string _configuration;
-        //public VisionDbContext()
-        //{
-        //    _configuration = (string)AppContext.GetData("ConnectionString")!;
-
-        //    //var folder = Environment.SpecialFolder.LocalApplicationData;
-        //    //var path = Environment.GetFolderPath(folder);
-        //    //DbPath = System.IO.Path.Join(path, "Vision.db");
-        //}
-
         public VisionDbContext(DbContextOptions<VisionDbContext> conn): base (conn)
         {
 
         }
-
-        //// The following configures EF to create a Sqlite database file in the
-        //// special "local" folder for your platform.
-        ////protected override void OnConfiguring(DbContextOptionsBuilder options)
-        ////    => options.UseSqlite($"Data Source={_configuration}");
-        //protected override void OnConfiguring(DbContextOptionsBuilder options)
-        //    => options.UseSqlServer($"Data Source={_configuration}");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
