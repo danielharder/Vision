@@ -22,7 +22,7 @@ namespace Vision.Server.Models
         string _configuration;
         public VisionDbContext(string aConn)
         {
-            _configuration = (string)AppContext.GetData("ConnectionString");
+            _configuration = (string)AppContext.GetData("ConnectionString")!;
 
             //var folder = Environment.SpecialFolder.LocalApplicationData;
             //var path = Environment.GetFolderPath(folder);
@@ -33,6 +33,34 @@ namespace Vision.Server.Models
         // special "local" folder for your platform.
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite($"Data Source={_configuration}");
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<User>().HasKey(b => b.PK);
+            modelBuilder.Entity<User>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<User>().Property(b => b.Id).ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Board>().HasKey(b => b.PK);
+            modelBuilder.Entity<Board>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Board>().Property(b => b.Id).ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<BoardMember>().HasNoKey();
+
+            modelBuilder.Entity<Lane>().HasKey(b => b.PK);
+            modelBuilder.Entity<Lane>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Lane>().Property(b => b.Id).ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Story>().HasKey(b => b.PK);
+            modelBuilder.Entity<Story>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Story>().Property(b => b.Id).ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Task>().HasKey(b => b.PK);
+            modelBuilder.Entity<Task>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Task>().Property(b => b.Id).ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Log>().HasKey(b => b.PK);
+            modelBuilder.Entity<Log>().Property(b => b.PK).ValueGeneratedOnAdd();
+        }
     }
 }
