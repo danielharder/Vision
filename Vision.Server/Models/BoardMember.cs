@@ -1,10 +1,11 @@
-﻿namespace Vision.Server.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Vision.Server.Models
 {
     public class BoardMember
     {
-        public Guid PK { get; set; }
         public int BoardId { get; set; }
         public int UserId { get; set; }
-        public string Role { get; set; }
+        public string Role { get; set; } = null!;
     }
 }

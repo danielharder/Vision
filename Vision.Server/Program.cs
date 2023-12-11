@@ -8,7 +8,9 @@ ConfigurationManager configuration = builder.Configuration;
 var conn = configuration.GetConnectionString("ConnectionString");
 
 // Add services to the container.
-builder.Services.AddScoped<DbContext, VisionDbContext>();
+
+
+builder.Services.AddSqlServer<VisionDbContext>(conn);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -25,7 +27,11 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+
+    var TestMigration = app.Services.GetRequiredService<VisionDbContext>();
+    await TestMigration.Database.EnsureCreatedAsync();
 }
+
 
 app.UseHttpsRedirection();
 
