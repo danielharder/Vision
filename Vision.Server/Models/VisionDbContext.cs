@@ -5,12 +5,12 @@ namespace Vision.Server.Models
 {
     public class VisionDbContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public DbSet<Board> Boards { get; set; }
+        public DbSet<UserDTO> Users { get; set; }
+        public DbSet<BoardDTO> Boards { get; set; }
         public DbSet<BoardMember> BoardMembers { get; set; }
-        public DbSet<Lane> Lanes { get; set; }
-        public DbSet<Story> Stories { get; set; }
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<LaneDTO> Lanes { get; set; }
+        public DbSet<StoryDTO> Stories { get; set; }
+        public DbSet<TaskDTO> Tasks { get; set; }
         public DbSet<Log> Logs { get; set; }
 
         public VisionDbContext(DbContextOptions<VisionDbContext> conn): base (conn)
@@ -22,27 +22,27 @@ namespace Vision.Server.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<User>().HasKey(b => b.PK);
-            modelBuilder.Entity<User>().Property(b => b.PK).ValueGeneratedOnAdd();
-            modelBuilder.Entity<User>().Property(b => b.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<UserDTO>().HasKey(b => b.PK);
+            modelBuilder.Entity<UserDTO>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<UserDTO>().Property(b => b.Id).ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<Board>().HasKey(b => b.PK);
-            modelBuilder.Entity<Board>().Property(b => b.PK).ValueGeneratedOnAdd();
-            modelBuilder.Entity<Board>().Property(b => b.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<BoardDTO>().HasKey(b => b.PK);
+            modelBuilder.Entity<BoardDTO>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<BoardDTO>().Property(b => b.Id).ValueGeneratedOnAdd();
 
             modelBuilder.Entity<BoardMember>().HasNoKey();
 
-            modelBuilder.Entity<Lane>().HasKey(b => b.PK);
-            modelBuilder.Entity<Lane>().Property(b => b.PK).ValueGeneratedOnAdd();
-            modelBuilder.Entity<Lane>().Property(b => b.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<LaneDTO>().HasKey(b => b.PK);
+            modelBuilder.Entity<LaneDTO>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<LaneDTO>().Property(b => b.Id).ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<Story>().HasKey(b => b.PK);
-            modelBuilder.Entity<Story>().Property(b => b.PK).ValueGeneratedOnAdd();
-            modelBuilder.Entity<Story>().Property(b => b.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<StoryDTO>().HasKey(b => b.PK);
+            modelBuilder.Entity<StoryDTO>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<StoryDTO>().Property(b => b.Id).ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<Task>().HasKey(b => b.PK);
-            modelBuilder.Entity<Task>().Property(b => b.PK).ValueGeneratedOnAdd();
-            modelBuilder.Entity<Task>().Property(b => b.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<TaskDTO>().HasKey(b => b.PK);
+            modelBuilder.Entity<TaskDTO>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<TaskDTO>().Property(b => b.Id).ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Log>().HasKey(b => b.PK);
             modelBuilder.Entity<Log>().Property(b => b.PK).ValueGeneratedOnAdd();

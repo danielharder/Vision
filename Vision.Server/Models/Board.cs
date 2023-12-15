@@ -1,6 +1,6 @@
 ﻿namespace Vision.Server.Models
 {
-    public class Board
+    public class BoardDTO
     {
         public Guid PK { get; set; }
         public int Id { get; set; }
