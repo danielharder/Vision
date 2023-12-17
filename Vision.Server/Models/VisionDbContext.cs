@@ -5,12 +5,12 @@ namespace Vision.Server.Models
 {
     public class VisionDbContext : DbContext
     {
-        public DbSet<UserDTO> Users { get; set; }
-        public DbSet<BoardDTO> Boards { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Board> Boards { get; set; }
         public DbSet<BoardMember> BoardMembers { get; set; }
-        public DbSet<LaneDTO> Lanes { get; set; }
-        public DbSet<StoryDTO> Stories { get; set; }
-        public DbSet<TaskDTO> Tasks { get; set; }
+        public DbSet<Lane> Lanes { get; set; }
+        public DbSet<Story> Stories { get; set; }
+        public DbSet<Task> Tasks { get; set; }
         public DbSet<Log> Logs { get; set; }
 
         public VisionDbContext(DbContextOptions<VisionDbContext> conn): base (conn)

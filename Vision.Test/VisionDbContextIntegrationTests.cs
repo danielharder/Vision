@@ -24,7 +24,7 @@ namespace Vision.test
         [Fact]
         public async System.Threading.Tasks.Task TestCreateUser()
         {
-            var newUser = new UserDTO
+            var newUser = new User
             {
                 PK = Guid.NewGuid(),
                 FirstName = "John",

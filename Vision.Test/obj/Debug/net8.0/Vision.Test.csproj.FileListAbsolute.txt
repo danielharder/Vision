@@ -241,3 +241,10 @@ C:\Users\D4\source\repos\Vision\Vision.Test\obj\Debug\net8.0\refint\Vision.Test.
 C:\Users\D4\source\repos\Vision\Vision.Test\obj\Debug\net8.0\Vision.Test.pdb
 C:\Users\D4\source\repos\Vision\Vision.Test\obj\Debug\net8.0\Vision.Test.genruntimeconfig.cache
 C:\Users\D4\source\repos\Vision\Vision.Test\obj\Debug\net8.0\ref\Vision.Test.dll
+C:\Users\d4t421\source\repos\Vision\Vision.Test\bin\Debug\net8.0\CoverletSourceRootsMapping_Vision.Test
+C:\Users\d4t421\source\repos\Vision\Vision.Test\obj\Debug\net8.0\Vision.Test.csproj.AssemblyReference.cache
+C:\Users\d4t421\source\repos\Vision\Vision.Test\obj\Debug\net8.0\Vision.Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\d4t421\source\repos\Vision\Vision.Test\obj\Debug\net8.0\Vision.Test.AssemblyInfoInputs.cache
+C:\Users\d4t421\source\repos\Vision\Vision.Test\obj\Debug\net8.0\Vision.Test.AssemblyInfo.cs
+C:\Users\d4t421\source\repos\Vision\Vision.Test\obj\Debug\net8.0\Vision.Test.csproj.CoreCompileInputs.cache
+C:\Users\d4t421\source\repos\Vision\Vision.Test\obj\Debug\net8.0\Vision.Test.sourcelink.json

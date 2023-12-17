@@ -23,10 +23,10 @@ namespace Vision.Server.Controllers
                 PK = board.PK,
                 Name = board.Name,
                 Description = board.Description,
-                BoardMembers = _context.BoardMembers
-                                    .Where(bm => bm.BoardId == board.Id)
-                                    .Select(bm => bm.UserId)
-                                    .ToList()
+                //BoardMembers = _context.BoardMembers
+                //                    .Where(bm => bm.UserId == board.Id)
+                //                    .Select(bm => bm.UserId).ToString()
+                //                    .ToList()
             }).ToList();
 
             return Ok(BoardDTOS);
