@@ -1,6 +1,6 @@
 ﻿namespace Vision.Server.Models
 {
-    public class StoryDTO
+    public class Story
     {
         public Guid PK { get; set; }
         public int Id { get; set; }

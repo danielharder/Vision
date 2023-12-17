@@ -163,3 +163,15 @@ C:\Users\D4\source\repos\Vision\Vision.Server\obj\Debug\net8.0\refint\Vision.Ser
 C:\Users\D4\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.pdb
 C:\Users\D4\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.genruntimeconfig.cache
 C:\Users\D4\source\repos\Vision\Vision.Server\obj\Debug\net8.0\ref\Vision.Server.dll
+C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.csproj.AssemblyReference.cache
+C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\spa.proxy.json
+C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.AssemblyInfoInputs.cache
+C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.AssemblyInfo.cs
+C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.csproj.CoreCompileInputs.cache
+C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.sourcelink.json
+C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.dll
+C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\refint\Vision.Server.dll
+C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.pdb

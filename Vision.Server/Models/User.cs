@@ -2,7 +2,7 @@
 
 namespace Vision.Server.Models
 {
-    public class UserDTO
+    public class User
     {
         public Guid PK { get; set; }
         public int Id { get; set; }

@@ -1,1 +1,2 @@
 C:\Users\D4\source\repos\Vision\vision.client\obj\Debug\vision.client.esproj.CoreCompileInputs.cache
+C:\Users\d4t421\source\repos\Vision\vision.client\obj\Debug\vision.client.esproj.CoreCompileInputs.cache

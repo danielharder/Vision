@@ -1,6 +1,6 @@
 ﻿namespace Vision.Server.Models
 {
-    public class LaneDTO
+    public class Lane
     {
         public Guid PK { get; set; }
         public int Id { get; set; }

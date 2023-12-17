@@ -4,4 +4,5 @@
     {
         public Guid PK { get; set; }
         public string Name { get; set; }
+    }
 }
