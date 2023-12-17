@@ -22,27 +22,27 @@ namespace Vision.Server.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<UserDTO>().HasKey(b => b.PK);
-            modelBuilder.Entity<UserDTO>().Property(b => b.PK).ValueGeneratedOnAdd();
-            modelBuilder.Entity<UserDTO>().Property(b => b.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<User>().HasKey(b => b.PK);
+            modelBuilder.Entity<User>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<User>().Property(b => b.Id).ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<BoardDTO>().HasKey(b => b.PK);
-            modelBuilder.Entity<BoardDTO>().Property(b => b.PK).ValueGeneratedOnAdd();
-            modelBuilder.Entity<BoardDTO>().Property(b => b.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Board>().HasKey(b => b.PK);
+            modelBuilder.Entity<Board>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Board>().Property(b => b.Id).ValueGeneratedOnAdd();
 
             modelBuilder.Entity<BoardMember>().HasNoKey();
 
-            modelBuilder.Entity<LaneDTO>().HasKey(b => b.PK);
-            modelBuilder.Entity<LaneDTO>().Property(b => b.PK).ValueGeneratedOnAdd();
-            modelBuilder.Entity<LaneDTO>().Property(b => b.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Lane>().HasKey(b => b.PK);
+            modelBuilder.Entity<Lane>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Lane>().Property(b => b.Id).ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<StoryDTO>().HasKey(b => b.PK);
-            modelBuilder.Entity<StoryDTO>().Property(b => b.PK).ValueGeneratedOnAdd();
-            modelBuilder.Entity<StoryDTO>().Property(b => b.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Story>().HasKey(b => b.PK);
+            modelBuilder.Entity<Story>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Story>().Property(b => b.Id).ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<TaskDTO>().HasKey(b => b.PK);
-            modelBuilder.Entity<TaskDTO>().Property(b => b.PK).ValueGeneratedOnAdd();
-            modelBuilder.Entity<TaskDTO>().Property(b => b.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Task>().HasKey(b => b.PK);
+            modelBuilder.Entity<Task>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Task>().Property(b => b.Id).ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Log>().HasKey(b => b.PK);
             modelBuilder.Entity<Log>().Property(b => b.PK).ValueGeneratedOnAdd();
