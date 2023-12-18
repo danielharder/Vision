@@ -27,7 +27,7 @@ namespace Vision.Server.Migrations
                 name: "Boards",
                 columns: table => new
                 {
-                    PK = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PK = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "newid()"),
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),

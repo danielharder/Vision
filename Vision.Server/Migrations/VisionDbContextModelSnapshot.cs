@@ -26,7 +26,8 @@ namespace Vision.Server.Migrations
                 {
                     b.Property<Guid>("PK")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("newid()");
 
                     b.Property<DateTime>("ArchiveDate")
                         .HasColumnType("datetime2");

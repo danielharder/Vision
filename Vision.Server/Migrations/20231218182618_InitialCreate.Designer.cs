@@ -12,7 +12,7 @@ using Vision.Server.Models;
 namespace Vision.Server.Migrations
 {
     [DbContext(typeof(VisionDbContext))]
-    [Migration("20231211012936_InitialCreate")]
+    [Migration("20231218182618_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -29,7 +29,8 @@ namespace Vision.Server.Migrations
                 {
                     b.Property<Guid>("PK")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("newid()");
 
                     b.Property<DateTime>("ArchiveDate")
                         .HasColumnType("datetime2");

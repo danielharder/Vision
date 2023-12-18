@@ -6,12 +6,12 @@ using Vision.Server.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // SQL Server Registration
-//builder.Services.AddDbContext<VisionDbContext>(options =>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<VisionDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // SQLLite reg
-builder.Services.AddDbContext<VisionDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+//builder.Services.AddDbContext<VisionDbContext>(options =>
+//    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Postgres reg
 //builder.Services.AddDbContext<VisionDbContext>(options =>
@@ -47,8 +47,8 @@ if (app.Environment.IsDevelopment())
         var dbContext = scope.ServiceProvider.GetRequiredService<VisionDbContext>();
         await dbContext.Database.MigrateAsync();
     }
-    var TestMigration = app.Services.GetRequiredService<VisionDbContext>();
-    await TestMigration.Database.EnsureCreatedAsync();
+    //var TestMigration = app.Services.GetRequiredService<VisionDbContext>();
+    //await TestMigration.Database.EnsureCreatedAsync();
 }
 
 

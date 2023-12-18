@@ -27,7 +27,15 @@ namespace Vision.Server.Models
             modelBuilder.Entity<User>().Property(b => b.Id).ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Board>().HasKey(b => b.PK);
-            modelBuilder.Entity<Board>().Property(b => b.PK).ValueGeneratedOnAdd();
+            //modelBuilder.Entity<Board>().Property(b => b.PK).ValueGeneratedOnAdd();
+
+            // Generates a new GUID on the client side
+            modelBuilder.Entity<Board>().Property(b => b.PK)
+                .HasDefaultValueSql("newid()")
+                .ValueGeneratedOnAdd();
+
+
+
             modelBuilder.Entity<Board>().Property(b => b.Id).ValueGeneratedOnAdd();
 
             modelBuilder.Entity<BoardMember>().HasNoKey();

@@ -31,6 +31,27 @@ namespace Vision.Server.Controllers
 
             return Ok(BoardDTOS);
         }
+        [HttpPost(Name = "TaskBoard")]
+        public ActionResult<BoardDTO> Post(BoardDTO boardDTO)
+        {
+            // Convert DTO to Entity model
+            var board = new Board
+            {
+                Name = boardDTO.Name,
+                Description = boardDTO.Description
+            };
+
+            // Add board to the database context and save changes
+            _context.Boards.Add(board);
+            _context.SaveChanges();
+
+            // Set the primary key (PK) from the saved entity to the DTO
+            boardDTO.PK = board.PK;
+
+            // Return the created board data
+            return CreatedAtAction(nameof(Get), new { id = board.PK }, boardDTO);
+        }
+
 
     }
 }
