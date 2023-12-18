@@ -328,3 +328,7 @@ C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\scopedcss\bun
 C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.csproj.CopyComplete
 C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.genruntimeconfig.cache
 C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\ref\Vision.Server.dll
+C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.Properties.Resources.resources
+C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.csproj.GenerateResource.cache
+C:\Users\d4t421\source\repos\Vision\Vision.Server\bin\Debug\net8.0\Npgsql.dll
+C:\Users\d4t421\source\repos\Vision\Vision.Server\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

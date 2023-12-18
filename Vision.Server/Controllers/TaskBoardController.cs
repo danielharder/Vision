@@ -22,7 +22,7 @@ namespace Vision.Server.Controllers
             {
                 PK = board.PK,
                 Name = board.Name,
-                Description = board.Description,
+                Description = board.Description
                 //BoardMembers = _context.BoardMembers
                 //                    .Where(bm => bm.UserId == board.Id)
                 //                    .Select(bm => bm.UserId).ToString()

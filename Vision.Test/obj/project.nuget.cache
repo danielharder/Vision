@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NyLSmlLBCxfFYAthTFrOsMIPC6dZFSMYGfjDNrb73enor0fL+XQkKfo0gQjBoWabqS5RotGBoKle4/11DA7xnQ==",
+  "dgSpecHash": "gFpKDTn62RhPmbnJb1wiaTERVMzVt1/UU28eU+HogxdeyGoxt7XNs3bFUMruq6kkgfgtKX/oio07DL8seUPbYQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\d4t421\\source\\repos\\Vision\\Vision.Test\\Vision.Test.csproj",
   "expectedPackageFiles": [
@@ -60,6 +60,8 @@
     "C:\\Users\\d4t421\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\d4t421\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\d4t421\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\d4t421\\.nuget\\packages\\npgsql\\8.0.0\\npgsql.8.0.0.nupkg.sha512",
+    "C:\\Users\\d4t421\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\8.0.0\\npgsql.entityframeworkcore.postgresql.8.0.0.nupkg.sha512",
     "C:\\Users\\d4t421\\.nuget\\packages\\nuget.frameworks\\5.11.0\\nuget.frameworks.5.11.0.nupkg.sha512",
     "C:\\Users\\d4t421\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\d4t421\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

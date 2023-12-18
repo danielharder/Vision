@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "M2xRhtAETks3mop83oPP+cyX13UxhyWdmfIwA3o/i2+p80j9UW+QhiCXTUs8S117Xavq3aEQl9O0HTUZDWTqWQ==",
+  "dgSpecHash": "uCP3h8gtE6kkdUP15GzC2JNGNlAgD0TbqzDtX8CvadE1Q27hWs9tolDYokyV8jqD7N3egXBQ4KAAHzeyLWoL9Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\d4t421\\source\\repos\\Vision\\Vision.Server\\Vision.Server.csproj",
   "expectedPackageFiles": [
@@ -52,6 +52,8 @@
     "C:\\Users\\d4t421\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\d4t421\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\d4t421\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\d4t421\\.nuget\\packages\\npgsql\\8.0.0\\npgsql.8.0.0.nupkg.sha512",
+    "C:\\Users\\d4t421\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\8.0.0\\npgsql.entityframeworkcore.postgresql.8.0.0.nupkg.sha512",
     "C:\\Users\\d4t421\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.6\\sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\d4t421\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
     "C:\\Users\\d4t421\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.6\\sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",

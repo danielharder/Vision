@@ -5,9 +5,17 @@ using Vision.Server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Register your DbContext as a scoped service
+// SQL Server Registration
+//builder.Services.AddDbContext<VisionDbContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// SQLLite reg
 builder.Services.AddDbContext<VisionDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Postgres reg
+//builder.Services.AddDbContext<VisionDbContext>(options =>
+//    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //ConfigurationManager configuration = builder.Configuration;
 //var conn = configuration.GetConnectionString("ConnectionString");
@@ -37,10 +45,10 @@ if (app.Environment.IsDevelopment())
     using (var scope = app.Services.CreateScope())
     {
         var dbContext = scope.ServiceProvider.GetRequiredService<VisionDbContext>();
-        await dbContext.Database.MigrateAsync(); 
+        await dbContext.Database.MigrateAsync();
     }
-    //var TestMigration = app.Services.GetRequiredService<VisionDbContext>();
-    //await TestMigration.Database.EnsureCreatedAsync();
+    var TestMigration = app.Services.GetRequiredService<VisionDbContext>();
+    await TestMigration.Database.EnsureCreatedAsync();
 }
 
 
