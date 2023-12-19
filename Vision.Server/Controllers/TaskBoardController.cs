@@ -1,57 +1,117 @@
 using Microsoft.AspNetCore.Mvc;
-using Vision.Server.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Vision.Server.DTO;
+using Vision.Server.Models;
 
-namespace Vision.Server.Controllers
+[ApiController]
+[Route("[controller]")]
+public class TaskBoardController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class TaskBoardController : ControllerBase
+    private readonly VisionDbContext _context;
+
+    public TaskBoardController(VisionDbContext context)
     {
-        private readonly VisionDbContext _context;
-        public TaskBoardController(VisionDbContext context)
+        _context = context;
+    }
+
+    // Get all boards
+    [HttpGet(Name = "GetTaskBoards")]
+    public async Task<ActionResult<IEnumerable<BoardDTO>>> Get()
+    {
+        var boards = await _context.Boards.ToListAsync();
+        var boardDTOs = boards.Select(board => new BoardDTO
         {
-            _context = context;
+            PK = board.PK,
+            Name = board.Name,
+            Description = board.Description,
+            BoardMembers = _context.BoardMembers
+                                  .Where(bm => bm.BoardPK == board.PK)
+                                  .Select(bm => new BoardMemberDTO
+                                  {
+                                      UserPK = bm.UserPK,
+                                      Role = bm.Role
+                                  }).ToList()
+        }).ToList();
+
+        return Ok(boardDTOs);
+    }
+
+
+
+    // Get board by ID
+    [HttpGet("{id}", Name = "GetTaskBoardById")]
+    public async Task<ActionResult<BoardDTO>> Get(Guid id)
+    {
+        var board = await _context.Boards.FindAsync(id);
+        if (board == null)
+        {
+            return NotFound();
         }
 
-        [HttpGet(Name = "TaskBoard")]
-        public ActionResult<IEnumerable<BoardDTO>> Get()
+        var boardDTO = new BoardDTO
         {
-            var boards = _context.Boards.ToList();
-            var BoardDTOS = boards.Select(board => new BoardDTO
-            {
-                PK = board.PK,
-                Name = board.Name,
-                Description = board.Description
-                //BoardMembers = _context.BoardMembers
-                //                    .Where(bm => bm.UserId == board.Id)
-                //                    .Select(bm => bm.UserId).ToString()
-                //                    .ToList()
-            }).ToList();
+            PK = board.PK,
+            Name = board.Name,
+            Description = board.Description
+        };
 
-            return Ok(BoardDTOS);
-        }
-        [HttpPost(Name = "TaskBoard")]
-        public ActionResult<BoardDTO> Post(BoardDTO boardDTO)
+        return boardDTO;
+    }
+
+    // Create Board
+    [HttpPost(Name = "CreateTaskBoard")]
+    public async Task<ActionResult<BoardDTO>> Post(BoardDTO boardDTO)
+    {
+        var board = new Board
         {
-            // Convert DTO to Entity model
-            var board = new Board
-            {
-                Name = boardDTO.Name,
-                Description = boardDTO.Description
-            };
+            Name = boardDTO.Name,
+            Description = boardDTO.Description
+        };
 
-            // Add board to the database context and save changes
-            _context.Boards.Add(board);
-            _context.SaveChanges();
+        _context.Boards.Add(board);
+        await _context.SaveChangesAsync();
 
-            // Set the primary key (PK) from the saved entity to the DTO
-            boardDTO.PK = board.PK;
+        boardDTO.PK = board.PK;
 
-            // Return the created board data
-            return CreatedAtAction(nameof(Get), new { id = board.PK }, boardDTO);
+        return CreatedAtAction(nameof(Get), new { id = board.PK }, boardDTO);
+    }
+
+    // Update Board
+    [HttpPut("{id}", Name = "UpdateTaskBoard")]
+    public async Task<ActionResult<BoardDTO>> Put(Guid id, BoardDTO boardDTO)
+    {
+        var board = await _context.Boards.FindAsync(id);
+        if (board == null)
+        {
+            return NotFound();
         }
 
+        board.Name = boardDTO.Name;
+        board.Description = boardDTO.Description;
 
+        _context.Boards.Update(board);
+        await _context.SaveChangesAsync();
+
+        return Ok(boardDTO);
+    }
+
+    // Delete Board
+    [HttpDelete("{id}", Name = "DeleteTaskBoard")]
+    public async Task<ActionResult> DeleteTaskBoard(Guid id)
+    {
+        var board = await _context.Boards.FindAsync(id);
+        if (board == null)
+        {
+            return NotFound();
+        }
+
+        _context.Boards.Remove(board);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
     }
 }

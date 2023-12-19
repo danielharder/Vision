@@ -1,10 +1,7 @@
-﻿using System.IO.Compression;
-
-namespace Vision.Server.Models
+﻿namespace Vision.Server.DTO.CreateDTOs
 {
-    public class UserDTO
+    public class CreateUserDTO
     {
-        public Guid PK { get; set; }
         public string FirstName { get; set; } = null!;
         public string LastName { get; set; } = null!;
         public string Email { get; set; } = null!;
