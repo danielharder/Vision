@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Vision.Server.DTO.CreateDTOs;
 using Vision.Server.Models;
 
 namespace Vision.Server.Controllers
@@ -26,6 +27,7 @@ namespace Vision.Server.Controllers
             var storyDTOs = stories.Select(story => new StoryDTO
             {
                 PK = story.PK,
+                LaneId = story.LanePK,
                 Title = story.Title,
                 Description = story.Description,
                 Status = story.Status,
@@ -48,6 +50,7 @@ namespace Vision.Server.Controllers
             var storyDTO = new StoryDTO
             {
                 PK = story.PK,
+                LaneId = story.LanePK,
                 Title = story.Title,
                 Description = story.Description,
                 Status = story.Status,
@@ -59,23 +62,21 @@ namespace Vision.Server.Controllers
         }
 
         [HttpPost(Name = "CreateStory")]
-        public async Task<ActionResult<StoryDTO>> CreateStory(StoryDTO storyDTO)
+        public async Task<ActionResult<StoryDTO>> CreateStory(CreateStoryDTO storyDTO)
         {
             var story = new Story
             {
                 Title = storyDTO.Title,
                 Description = storyDTO.Description,
                 Status = storyDTO.Status,
-                CreationDate = storyDTO.CreationDate,
-                ArchiveDate = storyDTO.ArchiveDate
+                CreationDate = DateTime.Now,
+                LanePK = storyDTO.LaneID
             };
 
             _context.Stories.Add(story);
             await _context.SaveChangesAsync();
 
-            storyDTO.PK = story.PK;
-
-            return CreatedAtAction(nameof(GetStory), new { id = story.PK }, storyDTO);
+            return await GetStory(story.PK);
         }
 
         [HttpPut("{id}", Name = "UpdateStory")]

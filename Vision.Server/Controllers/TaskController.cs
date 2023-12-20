@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Vision.Server.DTO.CreateDTOs;
 using Vision.Server.Models;
 
 namespace Vision.Server.Controllers
@@ -26,6 +27,7 @@ namespace Vision.Server.Controllers
             var taskDTOs = tasks.Select(task => new TaskDTO
             {
                 PK = task.PK,
+                StoryID = task.StoryPK,
                 Title = task.Title,
                 Description = task.Description,
                 Status = task.Status
@@ -46,6 +48,7 @@ namespace Vision.Server.Controllers
             var taskDTO = new TaskDTO
             {
                 PK = task.PK,
+                StoryID = task.StoryPK,
                 Title = task.Title,
                 Description = task.Description,
                 Status = task.Status
@@ -55,7 +58,7 @@ namespace Vision.Server.Controllers
         }
 
         [HttpPost(Name = "CreateTask")]
-        public async Task<ActionResult<TaskDTO>> CreateTask(TaskDTO taskDTO)
+        public async Task<ActionResult<TaskDTO>> CreateTask(CreateTaskDTO taskDTO)
         {
             var task = new TaskEntity
             {
@@ -63,19 +66,18 @@ namespace Vision.Server.Controllers
                 Description = taskDTO.Description,
                 Status = taskDTO.Status,
                 CreationDate = DateTime.Now,
-                ArchiveDate = DateTime.MaxValue
+                ArchiveDate = DateTime.MaxValue,
+                StoryPK = taskDTO.StoryID
             };
 
             _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
 
-            taskDTO.PK = task.PK;
-
-            return CreatedAtAction(nameof(GetTask), new { id = task.PK }, taskDTO);
+            return await GetTask(task.PK);
         }
 
         [HttpPut("{id}", Name = "UpdateTask")]
-        public async Task<ActionResult> UpdateTask(Guid id, TaskDTO taskDTO)
+        public async Task<ActionResult> UpdateTask(Guid id, CreateTaskDTO taskDTO)
         {
             var task = await _context.Tasks.FindAsync(id);
             if (task == null)
