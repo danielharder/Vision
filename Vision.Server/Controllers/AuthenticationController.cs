@@ -23,8 +23,12 @@ public class AuthenticationController : ControllerBase
     {
         var user = new User
         {
+            FirstName = model.FirstName,
+            LastName = model.LastName,
+            UserName = model.Email,
             Email = model.Email,
-            Password = model.password
+            Password = model.password,
+            Description = model.Description            
         };
 
         var result = await _userManager.CreateAsync(user, model.password);
@@ -42,7 +46,7 @@ public class AuthenticationController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login(LoginDTO model)
     {
-        var user = await _userManager.FindByNameAsync(model.email);
+        var user = await _userManager.FindByEmailAsync(model.email);
         if (user != null && await _userManager.CheckPasswordAsync(user, model.password))
         {
             await _signInManager.SignInAsync(user, isPersistent: false);
@@ -55,7 +59,7 @@ public class AuthenticationController : ControllerBase
     [HttpPost("reset-password")]
     public async Task<IActionResult> ResetPassword(ResetPasswordDTO model)
     {
-        var user = await _userManager.FindByNameAsync(model.Email);
+        var user = await _userManager.FindByEmailAsync(model.Email);
         if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
         {
             var result = await _userManager.ChangePasswordAsync(user, model.Password, model.NewPassword);
@@ -68,6 +72,7 @@ public class AuthenticationController : ControllerBase
 
         return BadRequest("Invalid current password");
     }
+
 
     [HttpPost("logout")]
     public async Task<IActionResult> Logout()
