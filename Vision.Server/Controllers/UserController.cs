@@ -57,14 +57,35 @@ namespace Vision.Server.Controllers
             return userDTO;
         }
 
-        [HttpPost(Name = "CreateUser")]
+        //[HttpPost(Name = "CreateUser")]
+        //public async Task<ActionResult<UserDTO>> CreateUser(CreateUserDTO userDTO)
+        //{
+        //    var user = new User
+        //    {
+        //        FirstName = userDTO.FirstName,
+        //        LastName = userDTO.LastName,
+        //        Email = userDTO.Email,
+        //        Description = userDTO.Description,
+        //        CreationDate = DateTime.Now
+        //    };
+
+        //    _context.Users.Add(user);
+        //    await _context.SaveChangesAsync();
+
+        //    return await GetUser(user.PK);
+        //}
+
+        [HttpPost(Name = "RegisterUser")]
         public async Task<ActionResult<UserDTO>> CreateUser(CreateUserDTO userDTO)
         {
+            PasswordHasher passwordHasher = new PasswordHasher();
+
             var user = new User
             {
                 FirstName = userDTO.FirstName,
                 LastName = userDTO.LastName,
                 Email = userDTO.Email,
+                Password = passwordHasher.HashPassword(userDTO.password),
                 Description = userDTO.Description,
                 CreationDate = DateTime.Now
             };
@@ -74,6 +95,8 @@ namespace Vision.Server.Controllers
 
             return await GetUser(user.PK);
         }
+
+
 
         [HttpPut("{id}", Name = "UpdateUser")]
         public async Task<ActionResult> UpdateUser(Guid id, UserUpdateDTO userUpdateDTO)

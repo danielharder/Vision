@@ -1,6 +1,12 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Vision.Server.Controllers;
+using Vision.Server.Interfaces;
 using Vision.Server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,19 +15,34 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<VisionDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// SQLLite reg
-//builder.Services.AddDbContext<VisionDbContext>(options =>
-//    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Postgres reg
-//builder.Services.AddDbContext<VisionDbContext>(options =>
-//    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-//ConfigurationManager configuration = builder.Configuration;
-//var conn = configuration.GetConnectionString("ConnectionString");
 
 // Add services to the container.
+//builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
+//builder.Services.AddScoped<UserController>();
 
+builder.Services.AddIdentity<User, IdentityRole>()
+    .AddEntityFrameworkStores<VisionDbContext>()
+    .AddDefaultTokenProviders();
+
+
+//Auth
+//builder.Services.AddAuthentication(options =>
+//{
+//    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+//})
+//    .AddJwtBearer(options =>
+//    {
+//        options.TokenValidationParameters = new TokenValidationParameters
+//        {
+//            ValidateIssuerSigningKey = true,
+//            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"])),
+//            ValidateIssuer = false,
+//            ValidateAudience = false,
+//            ClockSkew = TimeSpan.Zero // Optional: reduce timespan for token expiration validation
+//        };
+//    });
 
 //builder.Services.AddSqlServer<VisionDbContext>();
 

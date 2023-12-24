@@ -1,6 +1,8 @@
-﻿namespace Vision.Server.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace Vision.Server.Models
 {
-    public class Board
+    public class Board : IdentityUser
     {
         public Guid PK { get; set; }
         public int Id { get; set; }

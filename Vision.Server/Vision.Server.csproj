@@ -11,6 +11,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
       <Version>8.*-*</Version>
     </PackageReference>
@@ -39,7 +42,7 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 	<ItemGroup>
-		<InternalsVisibleTo Include="Vision.Test"/>
+		<InternalsVisibleTo Include="Vision.Test" />
 	</ItemGroup>
 
 </Project>
