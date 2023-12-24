@@ -1,12 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System.Diagnostics;
 
 namespace Vision.Server.Models
 {
-    public class VisionDbContext : DbContext
+    public class VisionDbContext : IdentityDbContext<User>
     {
-        public DbSet<User> Users { get; set; }
+        //public DbSet<User> Users { get; set; }
         public DbSet<Board> Boards { get; set; }
         public DbSet<BoardMember> BoardMembers { get; set; }
         public DbSet<Lane> Lanes { get; set; }
@@ -25,7 +26,7 @@ namespace Vision.Server.Models
 
             modelBuilder.Entity<User>().HasKey(b => b.PK);
             modelBuilder.Entity<User>().Property(b => b.PK).ValueGeneratedOnAdd();
-            modelBuilder.Entity<User>().Property(b => b.Id).ValueGeneratedOnAdd().Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+            //modelBuilder.Entity<User>().Property(b => b.Id).ValueGeneratedOnAdd().Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
 
 
             modelBuilder.Entity<Board>().HasKey(b => b.PK);
@@ -37,21 +38,21 @@ namespace Vision.Server.Models
                 .ValueGeneratedOnAdd();
 
 
-            modelBuilder.Entity<Board>().Property(b => b.Id).ValueGeneratedOnAdd().Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+            //modelBuilder.Entity<Board>().Property(b => b.Id).ValueGeneratedOnAdd().Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
 
             modelBuilder.Entity<BoardMember>().HasKey(b => b.PK);
 
             modelBuilder.Entity<Lane>().HasKey(b => b.PK);
             modelBuilder.Entity<Lane>().Property(b => b.PK).ValueGeneratedOnAdd();
-            modelBuilder.Entity<Lane>().Property(b => b.Id).ValueGeneratedOnAdd().Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+            //modelBuilder.Entity<Lane>().Property(b => b.Id).ValueGeneratedOnAdd().Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
 
             modelBuilder.Entity<Story>().HasKey(b => b.PK);
             modelBuilder.Entity<Story>().Property(b => b.PK).ValueGeneratedOnAdd();
-            modelBuilder.Entity<Story>().Property(b => b.Id).ValueGeneratedOnAdd().Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+            //modelBuilder.Entity<Story>().Property(b => b.Id).ValueGeneratedOnAdd().Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
 
             modelBuilder.Entity<TaskEntity>().HasKey(b => b.PK);
             modelBuilder.Entity<TaskEntity>().Property(b => b.PK).ValueGeneratedOnAdd();
-            modelBuilder.Entity<TaskEntity>().Property(b => b.Id).ValueGeneratedOnAdd().Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+            //modelBuilder.Entity<TaskEntity>().Property(b => b.Id).ValueGeneratedOnAdd().Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
 
             modelBuilder.Entity<Log>().HasKey(b => b.PK);
             modelBuilder.Entity<Log>().Property(b => b.PK).ValueGeneratedOnAdd();

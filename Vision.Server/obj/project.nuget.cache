@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SWpQqqhc6Qm/ROJb2tct82zGtfh7zg49/xfuD+OehD/Hkg4EXKhU80KBLC3CwyqcLQge37fSGpTbEPL/OJc1Pw==",
+  "dgSpecHash": "c3LBG0GmDa3x5G+hxgz830Axt3nG/dkbRjed4ZkQoXcjHr/q7qwVq8vOBBVgT0LDtFRCZDANPCgi/hfdgmVd5Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\d4t421\\source\\repos\\Vision\\Vision.Server\\Vision.Server.csproj",
+  "projectFilePath": "C:\\Users\\d4t421\\source\\repos\\Vision\\vision.server\\Vision.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\d4t421\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\d4t421\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

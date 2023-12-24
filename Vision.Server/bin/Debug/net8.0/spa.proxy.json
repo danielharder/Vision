@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:4200",
 "RedirectUrl": "",
 "LaunchCommand": "npm start",
-"WorkingDirectory": "C:\\Users\\d4t421\\source\\repos\\Vision\\Vision.Server\\..\\vision.client",
+"WorkingDirectory": "C:\\Users\\d4t421\\source\\repos\\Vision\\vision.server\\..\\vision.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GvEdqOokaZ+akYrkgiw/qlCDQiOa+U4NYURkXOwpli0=",
+  "Hash": "ft4Y9lF+cm2xg7/NhGaTJSc4pKBks1dXOBQ+93Fb2Uk=",
   "Source": "Vision.Server",
   "BasePath": "_content/Vision.Server",
   "Mode": "Default",
@@ -11,10 +11,10 @@
       "Version": 2,
       "Source": "vision.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishProperties": "",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildProperties": "",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
     }
   ],
