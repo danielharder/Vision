@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Vision.Server.DTO;
-using Vision.Server.DTO.CreateDTOs;
 using Vision.Server.Models;
 
 [ApiController]
@@ -65,38 +64,25 @@ public class TaskBoardController : ControllerBase
 
     // Create Board
     [HttpPost(Name = "CreateTaskBoard")]
-    public async Task<ActionResult<BoardDTO>> Post(CreateBoardDTO newBoardDTO)
+    public async Task<ActionResult<BoardDTO>> Post(BoardDTO boardDTO)
     {
         var board = new Board
         {
-            Name = newBoardDTO.Name,
-            Description = newBoardDTO.Description,
-            CreationDate = DateTime.Now
+            Name = boardDTO.Name,
+            Description = boardDTO.Description
         };
 
         _context.Boards.Add(board);
         await _context.SaveChangesAsync();
 
-        foreach (var boardMemberDTO in newBoardDTO.BoardMembers)
-        {
-            var boardMember = new BoardMember
-            {
-                BoardPK = board.PK,
-                UserPK = boardMemberDTO.UserPK,
-                Role = boardMemberDTO.Role
-            };
-            _context.BoardMembers.Add(boardMember);
-        }
+        boardDTO.PK = board.PK;
 
-        await _context.SaveChangesAsync();
-
-        return await Get(board.PK);
+        return CreatedAtAction(nameof(Get), new { id = board.PK }, boardDTO);
     }
-
 
     // Update Board
     [HttpPut("{id}", Name = "UpdateTaskBoard")]
-    public async Task<ActionResult<BoardDTO>> Put(Guid id, CreateBoardDTO boardDTO)
+    public async Task<ActionResult<BoardDTO>> Put(Guid id, BoardDTO boardDTO)
     {
         var board = await _context.Boards.FindAsync(id);
         if (board == null)

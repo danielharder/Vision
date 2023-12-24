@@ -28,7 +28,6 @@ namespace Vision.Server.Controllers
             var laneDTOs = lanes.Select(lane => new LaneDTO
             {
                 PK = lane.PK,
-                BoardId = lane.BoardPK,
                 Name = lane.Name
             }).ToList();
 
@@ -47,7 +46,6 @@ namespace Vision.Server.Controllers
             var laneDTO = new LaneDTO
             {
                 PK = lane.PK,
-                BoardId = lane.BoardPK,
                 Name = lane.Name
             };
 
@@ -59,18 +57,17 @@ namespace Vision.Server.Controllers
         {
             var lane = new Lane
             {
-                Name = laneDTO.Name,
-                BoardPK = laneDTO.BoardID
+                Name = laneDTO.Name
             };
 
             _context.Lanes.Add(lane);
             await _context.SaveChangesAsync();
 
-            return await GetLane(lane.PK);
+            return CreatedAtAction(nameof(GetLane), new { id = lane.PK }, laneDTO);
         }
 
         [HttpPut("{id}", Name = "UpdateLane")]
-        public async Task<ActionResult> UpdateLane(Guid id, CreateLaneDTO laneDTO)
+        public async Task<ActionResult> UpdateLane(Guid id, LaneDTO laneDTO)
         {
             var lane = await _context.Lanes.FindAsync(id);
             if (lane == null)

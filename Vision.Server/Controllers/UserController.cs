@@ -27,6 +27,7 @@ namespace Vision.Server.Controllers
             var userDTOs = users.Select(user => new UserDTO
             {
                 PK = user.PK,
+                Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
@@ -48,6 +49,7 @@ namespace Vision.Server.Controllers
             var userDTO = new UserDTO
             {
                 PK = user.PK,
+                Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
@@ -87,19 +89,20 @@ namespace Vision.Server.Controllers
                 Email = userDTO.Email,
                 Password = passwordHasher.HashPassword(userDTO.password),
                 Description = userDTO.Description,
-                CreationDate = DateTime.Now
+                CreationDate = DateTime.Now,
+                ArchiveDate = DateTime.MaxValue
             };
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return await GetUser(user.PK);
+            return CreatedAtAction(nameof(GetUser), new { id = user.PK }, userDTO);
         }
 
 
 
         [HttpPut("{id}", Name = "UpdateUser")]
-        public async Task<ActionResult> UpdateUser(Guid id, UserUpdateDTO userUpdateDTO)
+        public async Task<ActionResult> UpdateUser(Guid id, UserDTO userDTO)
         {
             var user = await _context.Users.FindAsync(id);
             if (user == null)
@@ -107,10 +110,10 @@ namespace Vision.Server.Controllers
                 return NotFound();
             }
 
-            user.FirstName = userUpdateDTO.FirstName;
-            user.LastName = userUpdateDTO.LastName;
-            user.Email = userUpdateDTO.Email;
-            user.Description = userUpdateDTO.Description;
+            user.FirstName = userDTO.FirstName;
+            user.LastName = userDTO.LastName;
+            user.Email = userDTO.Email;
+            user.Description = userDTO.Description;
 
             _context.Users.Update(user);
             await _context.SaveChangesAsync();

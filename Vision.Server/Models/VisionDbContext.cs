@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+=======
+﻿using Microsoft.EntityFrameworkCore;
+>>>>>>> parent of 2f1c67b (Sprint 2 complete!)
 using System.Diagnostics;
 
 namespace Vision.Server.Models
@@ -26,8 +30,12 @@ namespace Vision.Server.Models
 
             modelBuilder.Entity<User>().HasKey(b => b.PK);
             modelBuilder.Entity<User>().Property(b => b.PK).ValueGeneratedOnAdd();
+<<<<<<< HEAD
             //modelBuilder.Entity<User>().Property(b => b.Id).ValueGeneratedOnAdd().Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
 
+=======
+            modelBuilder.Entity<User>().Property(b => b.Id).ValueGeneratedOnAdd();
+>>>>>>> parent of 2f1c67b (Sprint 2 complete!)
 
             modelBuilder.Entity<Board>().HasKey(b => b.PK);
             //modelBuilder.Entity<Board>().Property(b => b.PK).ValueGeneratedOnAdd();
@@ -38,12 +46,18 @@ namespace Vision.Server.Models
                 .ValueGeneratedOnAdd();
 
 
+<<<<<<< HEAD
             //modelBuilder.Entity<Board>().Property(b => b.Id).ValueGeneratedOnAdd().Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+=======
+>>>>>>> parent of 2f1c67b (Sprint 2 complete!)
 
-            modelBuilder.Entity<BoardMember>().HasKey(b => b.PK);
+            modelBuilder.Entity<Board>().Property(b => b.Id).ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<BoardMember>().HasNoKey();
 
             modelBuilder.Entity<Lane>().HasKey(b => b.PK);
             modelBuilder.Entity<Lane>().Property(b => b.PK).ValueGeneratedOnAdd();
+<<<<<<< HEAD
             //modelBuilder.Entity<Lane>().Property(b => b.Id).ValueGeneratedOnAdd().Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
 
             modelBuilder.Entity<Story>().HasKey(b => b.PK);
@@ -53,6 +67,17 @@ namespace Vision.Server.Models
             modelBuilder.Entity<TaskEntity>().HasKey(b => b.PK);
             modelBuilder.Entity<TaskEntity>().Property(b => b.PK).ValueGeneratedOnAdd();
             //modelBuilder.Entity<TaskEntity>().Property(b => b.Id).ValueGeneratedOnAdd().Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+=======
+            modelBuilder.Entity<Lane>().Property(b => b.Id).ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Story>().HasKey(b => b.PK);
+            modelBuilder.Entity<Story>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Story>().Property(b => b.Id).ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<TaskEntity>().HasKey(b => b.PK);
+            modelBuilder.Entity<TaskEntity>().Property(b => b.PK).ValueGeneratedOnAdd();
+            modelBuilder.Entity<TaskEntity>().Property(b => b.Id).ValueGeneratedOnAdd();
+>>>>>>> parent of 2f1c67b (Sprint 2 complete!)
 
             modelBuilder.Entity<Log>().HasKey(b => b.PK);
             modelBuilder.Entity<Log>().Property(b => b.PK).ValueGeneratedOnAdd();

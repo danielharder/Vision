@@ -57,6 +57,7 @@ namespace Vision.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+<<<<<<< HEAD
                     b.Property<Guid>("LanePK")
                         .HasColumnType("uniqueidentifier");
 
@@ -66,6 +67,8 @@ namespace Vision.Server.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
+=======
+>>>>>>> parent of 2f1c67b (Sprint 2 complete!)
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -101,10 +104,6 @@ namespace Vision.Server.Migrations
 
             modelBuilder.Entity("Vision.Server.Models.BoardMember", b =>
                 {
-                    b.Property<Guid>("PK")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("BoardPK")
                         .HasColumnType("uniqueidentifier");
 
@@ -114,8 +113,6 @@ namespace Vision.Server.Migrations
 
                     b.Property<Guid>("UserPK")
                         .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("PK");
 
                     b.ToTable("BoardMembers");
                 });
@@ -128,9 +125,6 @@ namespace Vision.Server.Migrations
 
                     b.Property<DateTime>("ArchiveDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<Guid>("BoardPK")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -204,9 +198,6 @@ namespace Vision.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<Guid>("LanePK")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -245,9 +236,6 @@ namespace Vision.Server.Migrations
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("StoryPK")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Title")
                         .IsRequired()
