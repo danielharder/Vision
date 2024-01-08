@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,7 +11,7 @@ using Vision.Server.Models;
 
 namespace Vision.Server.Controllers
 {
-
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class LaneController : ControllerBase

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using Vision.Server.Models;
 
 namespace Vision.Server.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UserController : ControllerBase
@@ -57,6 +59,7 @@ namespace Vision.Server.Controllers
             return userDTO;
         }
 
+        [AllowAnonymous]
         [HttpPost(Name = "CreateUser")]
         public async Task<ActionResult<UserDTO>> CreateUser(CreateUserDTO userDTO)
         {
@@ -65,6 +68,7 @@ namespace Vision.Server.Controllers
                 FirstName = userDTO.FirstName,
                 LastName = userDTO.LastName,
                 Email = userDTO.Email,
+                Password = userDTO.Password,
                 Description = userDTO.Description,
                 CreationDate = DateTime.Now
             };

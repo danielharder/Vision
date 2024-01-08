@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "GvEdqOokaZ+akYrkgiw/qlCDQiOa+U4NYURkXOwpli0=",
+  "Hash": "N3z7Ly7P6R24oEm14k1dmvxRerbdS4vvTTfMLbDrBBQ=",
   "Source": "Vision.Server",
   "BasePath": "_content/Vision.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\d4t421\\source\\repos\\Vision\\vision.client\\vision.client.esproj",
+      "Identity": "C:\\Users\\D4\\source\\repos\\Vision\\vision.client\\vision.client.esproj",
       "Version": 2,
       "Source": "vision.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",

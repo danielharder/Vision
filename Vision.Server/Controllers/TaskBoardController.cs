@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,6 +9,7 @@ using Vision.Server.DTO;
 using Vision.Server.DTO.CreateDTOs;
 using Vision.Server.Models;
 
+[Authorize]
 [ApiController]
 [Route("[controller]")]
 public class TaskBoardController : ControllerBase

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using Vision.Server.Models;
 
 namespace Vision.Server.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class TaskController : ControllerBase
