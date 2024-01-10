@@ -332,3 +332,8 @@ C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server
 C:\Users\d4t421\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.csproj.GenerateResource.cache
 C:\Users\d4t421\source\repos\Vision\Vision.Server\bin\Debug\net8.0\Npgsql.dll
 C:\Users\d4t421\source\repos\Vision\Vision.Server\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\D4\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.Properties.Resources.resources
+C:\Users\D4\source\repos\Vision\Vision.Server\obj\Debug\net8.0\Vision.Server.csproj.GenerateResource.cache
+C:\Users\D4\source\repos\Vision\Vision.Server\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\D4\source\repos\Vision\Vision.Server\bin\Debug\net8.0\Npgsql.dll
+C:\Users\D4\source\repos\Vision\Vision.Server\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
