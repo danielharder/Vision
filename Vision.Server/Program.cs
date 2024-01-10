@@ -9,23 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<VisionDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-<<<<<<< Updated upstream
-// SQLLite reg
-//builder.Services.AddDbContext<VisionDbContext>(options =>
-//    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-// Postgres reg
-//builder.Services.AddDbContext<VisionDbContext>(options =>
-//    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-//ConfigurationManager configuration = builder.Configuration;
-//var conn = configuration.GetConnectionString("ConnectionString");
-
-// Add services to the container.
-
-
-//builder.Services.AddSqlServer<VisionDbContext>();
-=======
 //Auth
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
@@ -41,7 +24,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
             };
         });
->>>>>>> Stashed changes
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

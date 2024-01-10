@@ -158,7 +158,7 @@
           "buildTransitive/net8.0/Microsoft.AspNetCore.Mvc.Testing.targets": {}
         }
       },
-      "Microsoft.AspNetCore.SpaProxy/8.0.0": {
+      "Microsoft.AspNetCore.SpaProxy/8.0.1": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.AspNetCore.SpaProxy.dll": {}
@@ -4234,10 +4234,10 @@
         "tasks/netstandard2.0/Microsoft.AspNetCore.Mvc.Testing.Tasks.dll"
       ]
     },
-    "Microsoft.AspNetCore.SpaProxy/8.0.0": {
-      "sha512": "bVz+tU77Gsl7RvQHykG2EoUlReUHS0/jBqAsR1lRgIan7cx3oKSwcZ1K3b7JmKhrKGb1I/JB94irDXNHFYKxKA==",
+    "Microsoft.AspNetCore.SpaProxy/8.0.1": {
+      "sha512": "Cr90fgPoG1Esw/pKTD/sdIHkjPcnbVoaoSrblSPsaPk6vCzpHtiS254gNfeNkiV2rm4Igu2S2XseNidXBemL/A==",
       "type": "package",
-      "path": "microsoft.aspnetcore.spaproxy/8.0.0",
+      "path": "microsoft.aspnetcore.spaproxy/8.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4245,7 +4245,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "build/Microsoft.AspNetCore.SpaProxy.targets",
         "lib/net8.0/Microsoft.AspNetCore.SpaProxy.dll",
-        "microsoft.aspnetcore.spaproxy.8.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.spaproxy.8.0.1.nupkg.sha512",
         "microsoft.aspnetcore.spaproxy.nuspec"
       ]
     },
@@ -11454,23 +11454,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\d4t421\\.nuget\\packages\\": {},
+    "C:\\Users\\D4\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\d4t421\\source\\repos\\Vision\\Vision.Test\\Vision.Test.csproj",
+      "projectUniqueName": "C:\\Users\\D4\\source\\repos\\Vision\\Vision.Test\\Vision.Test.csproj",
       "projectName": "Vision.Test",
-      "projectPath": "C:\\Users\\d4t421\\source\\repos\\Vision\\Vision.Test\\Vision.Test.csproj",
-      "packagesPath": "C:\\Users\\d4t421\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\d4t421\\source\\repos\\Vision\\Vision.Test\\obj\\",
+      "projectPath": "C:\\Users\\D4\\source\\repos\\Vision\\Vision.Test\\Vision.Test.csproj",
+      "packagesPath": "C:\\Users\\D4\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\D4\\source\\repos\\Vision\\Vision.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\d4t421\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\D4\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -11479,15 +11479,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\d4t421\\source\\repos\\Vision\\Vision.Server\\Vision.Server.csproj": {
-              "projectPath": "C:\\Users\\d4t421\\source\\repos\\Vision\\Vision.Server\\Vision.Server.csproj"
+            "C:\\Users\\D4\\source\\repos\\Vision\\Vision.Server\\Vision.Server.csproj": {
+              "projectPath": "C:\\Users\\D4\\source\\repos\\Vision\\Vision.Server\\Vision.Server.csproj"
             }
           }
         }
