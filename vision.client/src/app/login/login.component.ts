@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { LoginToken } from '../interfaces/LoginToken';
 
 @Component({
   selector: 'app-login',
@@ -13,17 +14,19 @@ export class LoginComponent {
   constructor(private http: HttpClient) { }
 
   login() {
-    console.log(`Email: ${this.email}, Password: ${this.password}`);
+    //console.log(`Email: ${this.email}, Password: ${this.password}`);
     const loginData = { email: this.email, password: this.password };
     console.log(loginData);
-    this.http.post('https://localhost:7010/api/Login/authenticate', loginData).subscribe(
+    this.http.post<LoginToken>('https://localhost:7010/api/Login/authenticate', loginData).subscribe(
       response => {
-        console.log(response);
-        //sessionStorage.setItem(response)
+        console.log(response);        
+        sessionStorage.setItem('jwt', response.token);
+        console.log('Token stored in session storage');
       },
       error => {
         console.log(error);
       }
     );
   }
+
 }

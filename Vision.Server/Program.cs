@@ -53,6 +53,10 @@ if (app.Environment.IsDevelopment())
     //await TestMigration.Database.EnsureCreatedAsync();
 }
 
+app.UseCors(options =>
+options.WithOrigins("https://localhost:4200")
+.AllowAnyMethod()
+.AllowAnyHeader());
 
 app.UseHttpsRedirection();
 
