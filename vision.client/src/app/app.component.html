@@ -1,6 +1,8 @@
 <nav>
-  <a routerLink="/login">Login</a>
+  <Button *ngIf="!authService.isLoggedIn" routerLink="/login">Login</Button>
+  <Button *ngIf="authService.isLoggedIn" (click)="authService.logout()">Logout</Button>
 </nav>
+
 
 <router-outlet></router-outlet>
 
