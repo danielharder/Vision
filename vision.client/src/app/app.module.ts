@@ -6,15 +6,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { TaskboardComponent } from './taskboard/taskboard.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { TaskboardsComponent } from './taskboards/taskboards.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    TaskboardComponent,
+    TaskboardsComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule, FormsModule
+    AppRoutingModule, FormsModule, DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
