@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { TaskboardComponent } from './taskboard/taskboard.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TaskboardsComponent } from './taskboards/taskboards.component';
+import { LaneComponent } from './lane/lane.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     TaskboardComponent,
-    TaskboardsComponent
+    TaskboardsComponent,
+    LaneComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

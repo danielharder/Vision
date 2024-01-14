@@ -7,7 +7,7 @@ import { TaskboardComponent } from './taskboard/taskboard.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'taskboards', component: TaskboardsComponent },
-  { path: 'taskboard', component: TaskboardComponent }
+  { path: 'taskboard/:id', component: TaskboardComponent }
 ];
 
 @NgModule({

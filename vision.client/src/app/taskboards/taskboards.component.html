@@ -1,5 +1,5 @@
 <div class="taskboard-container">
-  <div *ngFor="let taskBoard of taskBoards" class="taskboard-card" click)="onTaskBoardClick(taskBoard)>
+  <div *ngFor="let taskBoard of taskBoards" class="taskboard-card" (click)="onTaskBoardClick(taskBoard)">
     <h3>{{ taskBoard.name }}</h3>
   </div>
 </div>
