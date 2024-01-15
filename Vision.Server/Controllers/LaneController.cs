@@ -53,6 +53,28 @@ namespace Vision.Server.Controllers
 
             return laneDTO;
         }
+        [HttpGet("ByBoardId/{boardId}", Name = "GetLanesByBoardId")]
+        public async Task<ActionResult<IEnumerable<LaneDTO>>> GetLanesByBoardId(Guid boardId)
+        {
+            var lanes = await _context.Lanes
+                                      .Where(lane => lane.BoardPK == boardId)
+                                      .ToListAsync();
+
+            if (!lanes.Any())
+            {
+                return NotFound();
+            }
+
+            var laneDTOs = lanes.Select(lane => new LaneDTO
+            {
+                PK = lane.PK,
+                BoardId = lane.BoardPK,
+                Name = lane.Name
+            }).ToList();
+
+            return laneDTOs;
+        }
+
 
         [HttpPost(Name = "CreateLane")]
         public async Task<ActionResult<LaneDTO>> CreateLane(CreateLaneDTO laneDTO)

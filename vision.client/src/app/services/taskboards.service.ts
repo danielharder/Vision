@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class TaskBoardsService {
   private taskBoards: TaskBoard[] = [];
-  private TaskboardUrl = 'https://localhost:7010/TaskBoard';
+  private TaskboardUrl = 'https://localhost:7010/TaskBoard/';
 
   constructor(private http: HttpClient) { }
 
@@ -27,7 +27,7 @@ export class TaskBoardsService {
 
   getTaskBoard(id: string): Observable<TaskBoard> {
     const headers = this.GenerateAuthHeader();
-    return this.http.get<TaskBoard>(this.TaskboardUrl + '/:' + id, { headers });
+    return this.http.get<TaskBoard>(this.TaskboardUrl + id, { headers });
   }
 
   //getTaskBoard(pk: string): TaskBoard | undefined {
@@ -47,5 +47,13 @@ export class TaskBoardsService {
   getLaneById(id: string): Observable<Lane[]> {
     const headers = this.GenerateAuthHeader();
     return this.http.get<Lane[]>('https://localhost:7010/Lane/:id', { headers });
+  }
+  getLanesByBoardId(boardId: string): Observable<Lane[]> {
+    const headers = this.GenerateAuthHeader();
+    return this.http.get<Lane[]>('https://localhost:7010/Lane/ByBoardId/' + boardId, { headers });
+  }
+  addLane(laneData: { name: string, boardID: string | null }): Observable<Lane> {
+    const headers = this.GenerateAuthHeader();
+    return this.http.post<Lane>('https://localhost:7010/Lane', laneData, { headers });
   }
 }

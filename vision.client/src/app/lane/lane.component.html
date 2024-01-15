@@ -1,7 +1,10 @@
 <p>lane works!</p>
 
 <div class="lane-container">
+
+
   <div *ngFor="let lane of Lanes" class="lane-card">
     <h3>{{ lane.name }}</h3>
   </div>
+  <button class="lane-card" (click)="addLane()">Add Lane</button>
 </div>

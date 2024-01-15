@@ -1,2 +1,2 @@
 <p>taskboard works!</p>
-<app-lane></app-lane>
+<app-lane *ngIf="taskBoard" [boardPK]="taskBoard.pk"></app-lane>

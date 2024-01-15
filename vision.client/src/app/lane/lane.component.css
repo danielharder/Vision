@@ -1,0 +1,13 @@
+.lane-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.lane-card {
+  width: 30%;
+  min-height: 300px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  margin: 10px;
+  padding: 5px;
+}
