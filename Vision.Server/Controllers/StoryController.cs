@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Vision.Server.DTO.CreateDTOs;
+using Vision.Server.DTO.UpdateDTOs;
 using Vision.Server.Models;
 
 namespace Vision.Server.Controllers
@@ -37,6 +38,32 @@ namespace Vision.Server.Controllers
 
             return Ok(storyDTOs);
         }
+        [HttpGet("ByLaneId/{laneId}", Name = "GetStoriesByLaneId")]
+        public async Task<ActionResult<IEnumerable<StoryDTO>>> GetStoriesByLaneId(Guid laneId)
+        {
+            var stories = await _context.Stories
+                                        .Where(story => story.LanePK == laneId)
+                                        .ToListAsync();
+
+            if (!stories.Any())
+            {
+                return NotFound();
+            }
+
+            var storyDTOs = stories.Select(story => new StoryDTO
+            {
+                PK = story.PK,
+                LaneId = story.LanePK,
+                Title = story.Title,
+                Description = story.Description,
+                Status = story.Status,
+                CreationDate = story.CreationDate,
+                ArchiveDate = story.ArchiveDate
+            }).ToList();
+
+            return storyDTOs;
+        }
+
 
         [HttpGet("{id}", Name = "GetStoryById")]
         public async Task<ActionResult<StoryDTO>> GetStory(Guid id)
@@ -112,6 +139,24 @@ namespace Vision.Server.Controllers
             _context.Stories.Remove(story);
             await _context.SaveChangesAsync();
 
+            return NoContent();
+        }
+        [HttpPut("UpdatePositions", Name = "UpdateStoryPositions")]
+        public async Task<ActionResult> UpdateStoryPositions(IEnumerable<UpdateStoryPositionDTO> updateDTOs)
+        {
+            foreach (UpdateStoryPositionDTO updateDTO in updateDTOs)
+            {
+                var story = await _context.Stories.FindAsync(updateDTO.StoryId);
+                if (story != null)
+                {
+                    story.Position = updateDTO.NewPosition;
+                }
+                else
+                {
+                    return NotFound($"Story with ID {updateDTO.StoryId} not found.");
+                }
+            }
+            await _context.SaveChangesAsync();
             return NoContent();
         }
     }

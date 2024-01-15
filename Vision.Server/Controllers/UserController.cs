@@ -65,6 +65,7 @@ namespace Vision.Server.Controllers
                 FirstName = userDTO.FirstName,
                 LastName = userDTO.LastName,
                 Email = userDTO.Email,
+                Password = userDTO.password,
                 Description = userDTO.Description,
                 CreationDate = DateTime.Now
             };

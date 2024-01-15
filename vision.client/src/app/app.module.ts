@@ -10,6 +10,7 @@ import { TaskboardComponent } from './taskboard/taskboard.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TaskboardsComponent } from './taskboards/taskboards.component';
 import { LaneComponent } from './lane/lane.component';
+import { StoryComponent } from './story/story.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LaneComponent } from './lane/lane.component';
     LoginComponent,
     TaskboardComponent,
     TaskboardsComponent,
-    LaneComponent
+    LaneComponent,
+    StoryComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TaskBoardsService } from '../services/taskboards.service';
 import { TaskBoard } from '../interfaces/TaskBoard';
-import { Lane } from '../interfaces/Lane';
 
 @Component({
   selector: 'app-taskboard',

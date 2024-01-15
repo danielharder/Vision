@@ -3,6 +3,7 @@ import { TaskBoard } from '../interfaces/TaskBoard';
 import { Lane } from '../interfaces/Lane';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Story } from '../interfaces/Story';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class TaskBoardsService {
     return headers;
   }
 
+  // TASKBOARD REQUESTS
   getTaskBoards(): Observable<TaskBoard[]> {
     const headers = this.GenerateAuthHeader();
     return this.http.get<TaskBoard[]>(this.TaskboardUrl, { headers });
@@ -30,16 +32,12 @@ export class TaskBoardsService {
     return this.http.get<TaskBoard>(this.TaskboardUrl + id, { headers });
   }
 
-  //getTaskBoard(pk: string): TaskBoard | undefined {
-  //  // TODO: Use to get single taskboard from HTTP
-  //  return this.taskBoards.find(board => board.pk === pk);
-  //}
-
-  addTaskBoard(taskBoard: TaskBoard): void {
-    // TODO: Refactor to add single taskboard from HTTP
-    this.taskBoards.push(taskBoard);
+  addTaskBoard(newTaskBoard: { name: string; description: string; boardMembers: { userPK: string; role: string; }[] }): Observable<TaskBoard> {
+    const headers = this.GenerateAuthHeader();
+    return this.http.post<TaskBoard>('https://localhost:7010/TaskBoard', newTaskBoard, { headers });
   }
 
+  // LANE REQUESTS
   getLanes(): Observable<Lane[]> {
     const headers = this.GenerateAuthHeader();
     return this.http.get<Lane[]>('https://localhost:7010/Lane', { headers });
@@ -55,5 +53,27 @@ export class TaskBoardsService {
   addLane(laneData: { name: string, boardID: string | null }): Observable<Lane> {
     const headers = this.GenerateAuthHeader();
     return this.http.post<Lane>('https://localhost:7010/Lane', laneData, { headers });
+  }
+  deleteLane(laneId: string): Observable<any> {
+    const headers = this.GenerateAuthHeader();
+    return this.http.delete('https://localhost:7010/Lane/' + laneId, { headers });
+  }
+
+  // STORY REQUESTS
+  getStoriesByLaneId(laneId: string): Observable<Story[]> {
+    const headers = this.GenerateAuthHeader();
+    return this.http.get<Story[]>('https://localhost:7010/Story/ByLaneId/' + laneId, { headers });
+  }
+
+  updateStoryPositions(storyPositions: {StoryId: string, NewPosition: number}[]): Observable<any> {
+    const headers = this.GenerateAuthHeader();
+    return this.http.put('https://localhost:7010/Story/UpdatePositions', storyPositions, { headers });
+  }
+  addStory(storyData: { title: string, description: string, status: string, laneID: string }): Observable<Story> {
+    const headers = this.GenerateAuthHeader();
+    return this.http.post<Story>('https://localhost:7010/story', storyData, { headers });
+  }
+  deleteStory(storyId: string): Observable<any> {
+    return this.http.delete(`https://localhost:7010/Story/${storyId}`);
   }
 }

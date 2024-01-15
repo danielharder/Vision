@@ -1,0 +1,11 @@
+<div class="story-container">
+  <button (click)="addStory()" class="add-story-button">Add Story</button>
+  <div *ngFor="let story of stories" class="story-card">
+    <button class="delete-button"(click)="deleteStory(story.pk)">X</button>
+    <h4>{{ story.title }}</h4>
+    <p>{{ story.description }}</p>
+    <span class="story-status">{{ story.status }}</span>
+  </div>
+
+  <p *ngIf="stories.length === 0">No stories available.</p>
+</div>

@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TaskBoardsService } from '../services/taskboards.service';
 import { Lane } from '../interfaces/Lane';
-import { ActivatedRoute } from '@angular/router';
-
 @Component({
   selector: 'app-lane',
   templateUrl: './lane.component.html',
@@ -30,7 +28,6 @@ export class LaneComponent {
     }
   }
   addLane(): void {
-    //const boardID = this.taskBoard?.pk ?? null;
     if (this.boardPK == null) {
       console.error("Can't add lane, boardID is null or undefined.")
     }
@@ -42,7 +39,6 @@ export class LaneComponent {
 
     this.taskBoardService.addLane(newLaneData).subscribe(
       (newLane: Lane) => {
-        this.taskBoardService.addLane(newLaneData);
         this.Lanes.push(newLane);
       },
       (error) => {
@@ -50,4 +46,17 @@ export class LaneComponent {
       }
     );
   }
+  deleteLane(laneId: string): void {
+    if (confirm('Are you sure you want to delete this lane?')) {
+      this.taskBoardService.deleteLane(laneId).subscribe(
+        () => {
+          this.Lanes = this.Lanes.filter(lane => lane.pk !== laneId);
+          console.log('Lane deleted successfully - LaneId:', laneId);
+        },
+        error => {
+          console.error('Error occurred while deleting lane:', error);
+        }
+      );
+    }
+  }  
 }

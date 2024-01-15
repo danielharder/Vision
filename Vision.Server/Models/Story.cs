@@ -8,6 +8,7 @@
         public string Title { get; set; } = null!;
         public string Description { get; set; } = null!;
         public string Status { get; set; } = null!;
+        public int Position { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime ArchiveDate { get; set; }
     }
